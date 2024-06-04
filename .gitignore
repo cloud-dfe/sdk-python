@@ -1,0 +1,19 @@
+# Arquivos e diretórios do ambiente virtual
+.venv/
+.env/
+
+# Bytecode Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs e arquivos temporários
+*.log
+*.swp
+.DS_Store
+
+# Arquivos gerados
+dist/
+build/
+*.egg-info/
