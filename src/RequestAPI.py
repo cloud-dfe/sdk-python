@@ -24,6 +24,7 @@ class RequestApi ():
                 url=f"{self.base_uri}{route}",
                 timeout= self.timeout,
                 headers= self.headers,
+                data=payload,
                 allow_redirects=True
             )
 

@@ -1,5 +1,4 @@
-from src.Averbacao import Averbacao, ConfigBase
-from src.Base import AMBIENTE_HOMOLOGACAO
+from src import Averbacao, ConfigBase, AMBIENTE_HOMOLOGACAO
 
 try:
     config = ConfigBase(
