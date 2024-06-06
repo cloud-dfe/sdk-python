@@ -1,5 +1,5 @@
-from src.Averbacao import Averbacao, ConfigBase
-from src.Base import AMBIENTE_HOMOLOGACAO
+from src.Averbacao import *
+from src.Base import *
 
 try:
     config = ConfigBase(
@@ -11,7 +11,7 @@ try:
 
     averbacao = Averbacao(config)
 
-    file_xml_base64 = averbacao.file_open("./examples/teste.xml")
+    file_xml_base64 = averbacao.file_open("teste.xml")
 
     payload = {
         "xml": file_xml_base64,

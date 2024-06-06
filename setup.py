@@ -9,9 +9,10 @@ setup(
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="",
-    packages=find_packages(),
+    packages=find_packages(where='src'),
+    package_dir={'': 'src'},
     install_requires=[
-        # Adicione aqui as dependências do seu SDK, se houver
+    "requests",
     ],
     classifiers=[
         'Programming Language :: Python :: 3',

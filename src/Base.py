@@ -24,9 +24,6 @@ class ConfigBase():
         }
         self.path_config = path_config
 
-    def __repr__(self) -> str:
-        print(self.ambiente, self.token, self.options, self.path_config)
-
 class Base():
 
     def __init__(self, params: ConfigBase) -> None:
