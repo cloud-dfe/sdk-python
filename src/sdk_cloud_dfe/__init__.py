@@ -15,7 +15,7 @@ from .Softhouse import Softhouse
 __all__ = ["Averbacao",
            "Certificado",
            "Cte",
-           "Cteos",
+           "Cte",
            "Dte",
            "Emitente",
            "Gnre",

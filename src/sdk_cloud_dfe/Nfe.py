@@ -12,7 +12,7 @@ class Nfe(Base):
         return self.client.send("POST", "/nfe/preview", payload)
     
     def status(self) -> any:
-        return self.client.send("POST", "/nfe/status")
+        return self.client.send("GET", "/nfe/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)

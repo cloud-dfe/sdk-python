@@ -1,5 +1,5 @@
 import time
-from sdk_cloud_dfe import Cte, ConfigBase, AMBIENTE_HOMOLOGACAO
+from sdk_cloud_dfe import Cteos, ConfigBase, AMBIENTE_HOMOLOGACAO
 
 try:
     config = ConfigBase(
@@ -11,85 +11,64 @@ try:
         path_config="config.json" 
     )
 
-    cte = Cte(config)
+    cteos = Cteos(config)
 
     payload = {
-        "cfop": "5932",
-        "natureza_operacao": "PRESTACAO DE SERVIÇO",
-        "numero": "66",
+        "cfop": "5353",
+        "natureza_operacao": "PRESTACAO DE SERVICO",
+        "numero": "64",
         "serie": "1",
-        "data_emissao": "2021-06-22T03:00:00-03:00",
+        "data_emissao": "2020-11-24T03:00:00-03:00",
         "tipo_operacao": "0",
         "codigo_municipio_envio": "2408003",
         "nome_municipio_envio": "MOSSORO",
         "uf_envio": "RN",
-        "tipo_servico": "0",
+        "tipo_servico": "6",
         "codigo_municipio_inicio": "2408003",
-        "nome_municipio_inicio": "Mossoró",
+        "nome_municipio_inicio": "Mossoro",
         "uf_inicio": "RN",
         "codigo_municipio_fim": "2408003",
-        "nome_municipio_fim": "Mossoró",
+        "nome_municipio_fim": "Mossoro",
         "uf_fim": "RN",
-        "retirar_mercadoria": "1",
-        "detalhes_retirar": None,
-        "tipo_programacao_entrega": "0",
-        "sem_hora_tipo_hora_programada": "0",
-        "remetente": {
-            "cpf": "01234567890",
-            "inscricao_estadual": None,
-            "nome": "EMPRESA MODELO",
-            "razao_social": "MODELO LTDA",
-            "telefone": "8433163070",
-            "endereco": {
-                "logradouro": "AVENIDA TESTE",
-                "numero": "444",
-                "bairro": "CENTRO",
-                "codigo_municipio": "2408003",
-                "nome_municipio": "MOSSORÓ",
-                "uf": "RN"
-            }
-        },
         "valores": {
+            "servico": "0.00",
             "valor_total": "0.00",
             "valor_receber": "0.00",
-            "valor_total_carga": "224.50",
-            "produto_predominante": "SAL",
-            "quantidades": [
-                {
-                    "codigo_unidade_medida": "01",
-                    "tipo_medida": "Peso Bruto",
-                    "quantidade": "500.00"
-                }
-            ]
+            "quantidade": "10.00"
         },
         "imposto": {
             "icms": {
-                "situacao_tributaria": "20",
+                "situacao_tributaria": "99",
                 "valor_base_calculo": "0.00",
                 "aliquota": "12.00",
                 "valor": "0.00",
                 "aliquota_reducao_base_calculo": "50.00"
+            },
+            "federais": {
+                "valor_pis": "0.00",
+                "valor_cofins": "0.00",
+                "valor_ir": "12.00",
+                "valor_inss": "0.00",
+                "valor_csll": "50.00"
             }
         },
-        "nfes": [
-            {
-                "chave": "50000000000000000000000000000000000000000000"
-            }
-        ],
         "modal_rodoviario": {
-            "rntrc": "02033517"
+            "taf": "020335171251",
+            "numero_registro_estadual": "0203351712510203351712515"
         },
-        "destinatario": {
+        "tomador": {
+            "indicador_inscricao_estadual": "9",
             "cpf": "01234567890",
             "inscricao_estadual": None,
             "nome": "EMPRESA MODELO",
+            "razao_social": "EMPRESA MODELO",
             "telefone": "8499995555",
             "endereco": {
                 "logradouro": "AVENIDA TESTE",
                 "numero": "444",
                 "bairro": "CENTRO",
                 "codigo_municipio": "2408003",
-                "nome_municipio": "Mossoró",
+                "nome_municipio": "Mossoro",
                 "cep": "59603330",
                 "uf": "RN",
                 "codigo_pais": "1058",
@@ -103,14 +82,10 @@ try:
                 "valor": "1999.00"
             }
         ],
-        "tomador": {
-            "tipo": "3",
-            "indicador_inscricao_estadual": "9"
-        },
         "observacao": ""
     }
 
-    resp = cte.cria(payload)
+    resp = cteos.cria(payload)
 
     print(resp)
 
@@ -122,7 +97,7 @@ try:
             payload = {
                 "chave": chave
             }
-            respC = cte.consulta(payload)
+            respC = cteos.consulta(payload)
             if respC.get("codigo") != 5023:
                 if respC.get("sucesso"):
                     print(resp)
@@ -144,7 +119,7 @@ try:
             "chave": chave
         }
 
-        respC = cte.consulta(payload)
+        respC = cteos.consulta(payload)
         if respC.get("sucesso"):
             if respC.get("codigo") == 5023:
                 print(respC)

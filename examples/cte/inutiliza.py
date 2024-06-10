@@ -13,11 +13,13 @@ try:
     cte = Cte(config)
 
     payload = {
-        "chave": "50000000000000000000000000000000000000000000",
-        "justificativa": "teste de cancelamento"
+        "numero_inicial": "67",
+        "numero_final": "67",
+        "serie": "1",
+        "justificativa": "teste de inutilização"
     }
 
-    resp = cte.cancela(payload)
+    resp = cte.inutiliza(payload)
 
     print(resp)
 

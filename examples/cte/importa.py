@@ -12,12 +12,13 @@ try:
 
     cte = Cte(config)
 
+    file_xml_base64 = cte.file_open("caminho_do_arquivo.xml")
+
     payload = {
-        "chave": "50000000000000000000000000000000000000000000",
-        "justificativa": "teste de cancelamento"
+        "xml": file_xml_base64
     }
 
-    resp = cte.cancela(payload)
+    resp = cte.importa(payload)
 
     print(resp)
 

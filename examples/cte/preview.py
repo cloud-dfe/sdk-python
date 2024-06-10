@@ -1,4 +1,3 @@
-import time
 from sdk_cloud_dfe import Cte, ConfigBase, AMBIENTE_HOMOLOGACAO
 
 try:
@@ -14,9 +13,9 @@ try:
     cte = Cte(config)
 
     payload = {
-        "cfop": "5932",
+        "cfop": "5353",
         "natureza_operacao": "PRESTACAO DE SERVIÇO",
-        "numero": "66",
+        "numero": "64",
         "serie": "1",
         "data_emissao": "2021-06-22T03:00:00-03:00",
         "tipo_operacao": "0",
@@ -35,8 +34,8 @@ try:
         "tipo_programacao_entrega": "0",
         "sem_hora_tipo_hora_programada": "0",
         "remetente": {
-            "cpf": "01234567890",
-            "inscricao_estadual": None,
+            "cnpj": "15493526000128",
+            "inscricao_estadual": "239084510",
             "nome": "EMPRESA MODELO",
             "razao_social": "MODELO LTDA",
             "telefone": "8433163070",
@@ -57,7 +56,7 @@ try:
             "quantidades": [
                 {
                     "codigo_unidade_medida": "01",
-                    "tipo_medida": "Peso Bruto",
+                    "tipo_medida": "PESO BRUTO",
                     "quantidade": "500.00"
                 }
             ]
@@ -105,55 +104,14 @@ try:
         ],
         "tomador": {
             "tipo": "3",
-            "indicador_inscricao_estadual": "9"
+            "indicador_inscricao_estadual": "1"
         },
         "observacao": ""
     }
 
-    resp = cte.cria(payload)
+    resp = cte.preview(payload)
 
     print(resp)
 
-    if resp.get("sucesso"):
-        chave = resp.get("chave")
-        time.sleep(5)
-        tentativa = 1
-        while tentativa <= 5:
-            payload = {
-                "chave": chave
-            }
-            respC = cte.consulta(payload)
-            if respC.get("codigo") != 5023:
-                if respC.get("sucesso"):
-                    print(resp)
-                    break
-            else:
-                print(resp)
-                break
-        time.sleep(5)
-        tentativa += 1
-
-    elif resp.get("codigo") in [5001, 5002]:
-        print(resp.get("erros"))
-    
-    elif resp.get("codigo") == 5008 or resp.get("codigo") >= 7000:
-        chave = resp.get("chave")
-
-        print(resp)
-        payload = {
-            "chave": chave
-        }
-
-        respC = cte.consulta(payload)
-        if respC.get("sucesso"):
-            if respC.get("codigo") == 5023:
-                print(respC)
-        
-        else:
-            print(respC)
-
-    else:
-        print(resp)
-        
 except Exception as error:
     print("Ocorreu um erro", error)

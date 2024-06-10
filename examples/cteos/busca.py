@@ -1,4 +1,4 @@
-from sdk_cloud_dfe import Cte, ConfigBase, AMBIENTE_HOMOLOGACAO
+from sdk_cloud_dfe import Cteos, ConfigBase, AMBIENTE_HOMOLOGACAO
 
 try:
     config = ConfigBase(
@@ -10,14 +10,19 @@ try:
         path_config="config.json" 
     )
 
-    cte = Cte(config)
+    cte = Cteos(config)
 
     payload = {
-        "chave": "50000000000000000000000000000000000000000000",
-        "justificativa": "teste de cancelamento"
+        "numero_inicial": 1214,
+        "numero_final": 101002,
+        "serie": 1,
+        #"data_inicial": "2019-12-01",
+        #"data_final": "2019-12-31",
+        #"cancel_inicial": "2019-12-01" - Cancelamento
+        #"cancel_final": "2019-12-31"
     }
 
-    resp = cte.cancela(payload)
+    resp = cte.busca(payload)
 
     print(resp)
 
