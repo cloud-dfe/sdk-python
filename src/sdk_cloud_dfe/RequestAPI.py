@@ -17,14 +17,14 @@ class RequestApi ():
         self.port:int = self.options.get("port") or 443
         self.debug:bool = self.options.get("debug") or False
 
-    def request(self, method: str, route: str, payload: any = []) -> dict:
+    def request(self, method: str, route: str, payload: any = None) -> dict:
         try:
             response = r.request(
                 method=method,
                 url=f"{self.base_uri}{route}",
                 timeout= self.timeout,
                 headers= self.headers,
-                data=payload,
+                json=payload,
                 allow_redirects=True
             )
 
@@ -35,7 +35,7 @@ class RequestApi ():
 
             response.raise_for_status()
 
-            return response.data
+            return response.json()
         
         except r.exceptions.RequestException as error:
 

@@ -11,7 +11,7 @@ try:
 
     averbacao = Averbacao(config)
 
-    file_xml_base64 = averbacao.file_open("teste.xml")
+    file_xml_base64 = averbacao.file_open("caminho_do_arquivo.xml")
 
     payload = {
         "xml": file_xml_base64,
@@ -20,8 +20,6 @@ try:
         "codigo": "codigo",
         "chave": ""
     }
-
-    print(payload)
 
     resp = averbacao.atm(payload)
 

@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Emitente(Base):
 
@@ -6,10 +6,10 @@ class Emitente(Base):
         super().__init__(params)
 
     def token(self) -> any:
-        return self.client.send("GET", "/emitente/token", [])
+        return self.client.send("GET", "/emitente/token")
     
     def atualiza(self, payload: any) -> any:
         return self.client.send("PUT", "/emitente", payload)
     
     def mostra(self) -> any:
-        return self.client.send("GET", "/emitente", [])
+        return self.client.send("GET", "/emitente")

@@ -1,12 +1,17 @@
 # Arquivos e diretórios do ambiente virtual
 .venv/
 .env/
+*.env
+*caminho_do_arquivo.xml
+*caminho_do_arquivo.pfx
+*config.json
 
 # Bytecode Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.pypirc
 
 # Logs e arquivos temporários
 *.log

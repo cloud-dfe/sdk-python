@@ -1,6 +1,6 @@
 import json
 
-from src.RequestAPI import RequestApi
+from .RequestAPI import RequestApi
 
 AMBIENTE_PRODUCAO = "1"
 AMBIENTE_HOMOLOGACAO = "2"
@@ -60,11 +60,11 @@ class Client():
 
         self.client = RequestApi(config)
 
-    def send(self, method: str, route:str, payload:any = []) -> any:
+    def send(self, method: str, route:str, payload:any = None) -> any:
          
          try:
               response_data = self.client.request(method, route, payload)
               return response_data
          
-         except:
-              raise ValueError("Erro ao enviar solicitação HTTP")
+         except Exception as error:
+              raise ValueError("Erro ao enviar solicitação HTTP: ", error)

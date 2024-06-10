@@ -1,5 +1,4 @@
-from src.Averbacao import *
-from src.Base import *
+from sdk_cloud_dfe import Cte, ConfigBase, AMBIENTE_HOMOLOGACAO
 
 try:
     config = ConfigBase(
@@ -9,19 +8,19 @@ try:
         port=443
     )
 
-    averbacao = Averbacao(config)
-
-    file_xml_base64 = averbacao.file_open("caminho_do_arquivo.xml")
+    cte = Cte(config)
 
     payload = {
-        "xml": file_xml_base64,
-        "usuario": "login",
-        "senha": "senha",
-        "codigo": "codigo",
-        "chave": ""
+        "numero_inicial": 1214,
+        "numero_final": 101002,
+        "serie": 1,
+        #"data_inicial": "2019-12-01",
+        #"data_final": "2019-12-31",
+        #"cancel_inicial": "2019-12-01" - Cancelamento
+        #"cancel_final": "2019-12-31"
     }
 
-    resp = averbacao.atm(payload)
+    resp = cte.busca(payload)
 
     print(resp)
 

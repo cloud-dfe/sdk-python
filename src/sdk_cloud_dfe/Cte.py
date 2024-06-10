@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Cte(Base):
 
@@ -6,15 +6,15 @@ class Cte(Base):
         super().__init__(params)
 
     def status(self) -> any:
-        return self.client.send("GET", "/cte/status", [])
+        return self.client.send("GET", "/cte/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/cte/{key}", []);
+        return self.client.send("GET", f"/cte/{key}");
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET",  f"/cte/pdf/{key}", [])
+        return self.client.send("GET",  f"/cte/pdf/{key}")
     
     def cria(self, payload: any) -> any:
         return self.client.send("POST", "/cte", payload)

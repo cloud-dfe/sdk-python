@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Nfce(Base):
 
@@ -26,14 +26,14 @@ class Nfce(Base):
         return self.client.send("POST", "/nfce/cancela", payload)
     
     def offline(self) -> any:
-        return self.client.send("GET", "/nfce/offline", [])
+        return self.client.send("GET", "/nfce/offline")
     
     def inutiliza(self, payload: any) -> any:
         return self.client.send("POST", "/nfce/inutiliza", payload)
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/nfce/pdf/{key}", [])
+        return self.client.send("GET", f"/nfce/pdf/{key}")
     
     def substitui(self, payload: any) -> any:
         return self.client.send("POST", "/nfce/substitui", payload)

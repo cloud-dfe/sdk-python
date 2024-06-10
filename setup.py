@@ -1,12 +1,15 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
+
 setup(
-    name="sdk-cloud-dfe",
-    version="1.0.0",
+    name="sdk_cloud_dfe",
+    version="1.0.5",
     author="Integra Notas",
     author_email="comercial@cloud-dfe.com.br",
     description="SDK para comunicar com API Integra Notas.",
-    long_description=open("README.md").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="",
     packages=find_packages(where='src'),

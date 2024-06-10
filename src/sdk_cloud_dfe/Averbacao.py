@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Averbacao(Base):
 

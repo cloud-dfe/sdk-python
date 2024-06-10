@@ -1,7 +1,7 @@
 import re
 import base64
 
-from src.Cliente import AMBIENTE_HOMOLOGACAO, AMBIENTE_PRODUCAO, Client
+from .Cliente import AMBIENTE_HOMOLOGACAO, AMBIENTE_PRODUCAO, Client
 
 class ConfigBase():
 
@@ -59,8 +59,8 @@ class Base():
 
         self.client = Client(config)
 
-    def check_key(self, payload: any) -> str:
-        key = re.sub(r'[^0-9]', '', payload['chave'])
+    def check_key(payload: any) -> str:
+        key = re.sub(r"[^0-9]", "", payload.get("chave"))
         if not key or len(key) != 44:
             raise ValueError("A chave deve conter 44 dígitos numéricos")
         return key

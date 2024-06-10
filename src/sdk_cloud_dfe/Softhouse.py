@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Softhouse(Base):
 
@@ -16,7 +16,8 @@ class Softhouse(Base):
         if not payload or not payload.get("get"):
             raise ValueError("Deve ser passado um CNPJ ou um CPF para visualizar o emitente.")
         
-        return self.client.send("GET", f"/soft/emitente/{payload.get("doc")}", [])
+        doc = payload.get("doc")
+        return self.client.send("GET", f"/soft/emitente/{doc}")
     
     def lista_emitente(self, payload: any) -> any:
 
@@ -26,11 +27,12 @@ class Softhouse(Base):
         if status == "deletados" or status == "inativos":
             rota = "/soft/emitente/deletados"
         
-        return self.client.send("GET", rota, [])
+        return self.client.send("GET", rota)
     
     def deleta_emitente(self, payload: any) -> any:
 
         if not payload or not payload.get("get"):
             raise ValueError("Deve ser passado um CNPJ ou um CPF para visualizar o emitente.")
         
-        return self.client.send("DELETE", f"/soft/emitente/{payload.get("doc")}", [])
+        doc = payload.get("doc")
+        return self.client.send("DELETE", f"/soft/emitente/{doc}")

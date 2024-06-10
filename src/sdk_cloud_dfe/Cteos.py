@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Cteos(Base):
 
@@ -6,15 +6,15 @@ class Cteos(Base):
         super().__init__(params)
 
     def status(self) -> any:
-        return self.client.send("GET", "/cteos/status", [])
+        return self.client.send("GET", "/cteos/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/cteos/{key}", []);
+        return self.client.send("GET", f"/cteos/{key}");
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET",  f"/cteos/pdf/{key}", [])
+        return self.client.send("GET",  f"/cteos/pdf/{key}")
     
     def cria(self, payload: any) -> any:
         return self.client.send("POST", "/cteos", payload)

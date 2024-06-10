@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Gnre(Base):
 
@@ -7,7 +7,7 @@ class Gnre(Base):
 
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/gnre/{key}", [])
+        return self.client.send("GET", f"/gnre/{key}")
     
     def cria(self, payload: any) -> any:
         return self.client.send("POST", "/gnre", payload)

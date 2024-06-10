@@ -17,11 +17,10 @@ try:
         "xml": file_xml_base64,
         "usuario": "login",
         "senha": "senha",
-        "codigo": "codigo",
-        "chave": ""
+        "chave": "50000000000000000000000000000000000000000000"
     }
 
-    resp = averbacao.atm(payload)
+    resp = averbacao.porto_seguro(payload)
 
     print(resp)
 

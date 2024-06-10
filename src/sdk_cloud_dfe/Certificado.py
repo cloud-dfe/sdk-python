@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Certificado(Base):
 
@@ -9,4 +9,4 @@ class Certificado(Base):
         return self.client.send("POST", "/certificado", payload)
     
     def mostra(self) -> any:
-        return self.client.send("GET", "/certificado", "[]")
+        return self.client.send("GET", "/certificado")

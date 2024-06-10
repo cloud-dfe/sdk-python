@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Mdfe(Base):
 
@@ -12,11 +12,11 @@ class Mdfe(Base):
         return self.client.send("POST", "/mdfe/preview", payload)
     
     def status(self) -> any:
-        return self.client.send("GET", "/mdfe/status", [])
+        return self.client.send("GET", "/mdfe/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/mdfe/{key}", [])
+        return self.client.send("GET", f"/mdfe/{key}")
     
     def busca(self, payload: any) -> any:
         return self.client.send("POST", "/mdfe/busca", payload)
@@ -31,11 +31,11 @@ class Mdfe(Base):
         return self.client.send("POST", "/mdfe/condutor", payload)
     
     def offline(self) -> any:
-        return self.client.send("GET", "/mdfe/offline", [])
+        return self.client.send("GET", "/mdfe/offline")
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/mdfe/{key}", [])
+        return self.client.send("GET", f"/mdfe/{key}")
     
     def backup(self, payload: any) -> any:
         return self.client.send("POST", "/mdfe/backup", payload)

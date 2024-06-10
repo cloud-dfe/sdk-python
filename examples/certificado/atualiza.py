@@ -1,4 +1,4 @@
-from src.Averbacao import *
+from src.Certificado import *
 from src.Base import *
 
 try:
@@ -9,19 +9,16 @@ try:
         port=443
     )
 
-    averbacao = Averbacao(config)
+    certificado = Certificado(config)
 
-    file_xml_base64 = averbacao.file_open("caminho_do_arquivo.xml")
+    file_xml_base64 = certificado.file_open("caminho_do_arquivo.pfx")
 
     payload = {
-        "xml": file_xml_base64,
-        "usuario": "login",
+        "certificado": file_xml_base64,
         "senha": "senha",
-        "codigo": "codigo",
-        "chave": ""
     }
 
-    resp = averbacao.atm(payload)
+    resp = certificado.atualiza(payload)
 
     print(resp)
 

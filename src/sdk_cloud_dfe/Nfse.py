@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Nfse(Base):
 
@@ -13,11 +13,11 @@ class Nfse(Base):
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("POST", f"/nfse/{key}", [])
+        return self.client.send("POST", f"/nfse/{key}")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/nfse/{key}", [])
+        return self.client.send("GET", f"/nfse/{key}")
     
     def cancela(self, payload: any) -> any:
         return self.client.send("POST", "/nfse/cancela", payload)
@@ -35,13 +35,14 @@ class Nfse(Base):
         return self.client.send("POST", "/nfse/consulta", payload)
     
     def info(self, payload: any) -> any:
-        return self.client.send("GET", f"/nfse/info/{payload.get("ibge")}", [])
+        ibge = payload.get("ibge")
+        return self.client.send("GET", f"/nfse/info/{ibge}")
     
     def conflito(self, payload: any) -> any:
         return self.client.send("POST", "/nfse/conflito", payload)
     
     def offline(self) -> any:
-        return self.client.send("GET", "/nfse/offline", [])
+        return self.client.send("GET", "/nfse/offline")
     
     def resolve(self, payload: any) -> any:
         key = Base.check_key(payload)

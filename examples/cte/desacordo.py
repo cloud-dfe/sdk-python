@@ -1,4 +1,4 @@
-from src.Averbacao import *
+from src.Cte import *
 from src.Base import *
 
 try:
@@ -9,19 +9,20 @@ try:
         port=443
     )
 
-    averbacao = Averbacao(config)
-
-    file_xml_base64 = averbacao.file_open("caminho_do_arquivo.xml")
+    cte = Cte(config)
 
     payload = {
-        "xml": file_xml_base64,
-        "usuario": "login",
-        "senha": "senha",
-        "codigo": "codigo",
-        "chave": ""
+        "chave": "50000000000000000000000000000000000000000000",
+        "correcoes": [
+            {
+                "grupo_corrigido": "ide",
+                "campo_corrigido": "natOp",
+                "valor_corrigido": "PRESTACAO DE SERVIÇO"
+            }
+        ]
     }
 
-    resp = averbacao.atm(payload)
+    resp = cte.correcao(payload)
 
     print(resp)
 

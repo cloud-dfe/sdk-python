@@ -1,4 +1,4 @@
-from src.Averbacao import *
+from src.Cte import *
 from src.Base import *
 
 try:
@@ -9,19 +9,14 @@ try:
         port=443
     )
 
-    averbacao = Averbacao(config)
-
-    file_xml_base64 = averbacao.file_open("caminho_do_arquivo.xml")
+    cte = Cte(config)
 
     payload = {
-        "xml": file_xml_base64,
-        "usuario": "login",
-        "senha": "senha",
-        "codigo": "codigo",
-        "chave": ""
+        "ano": "2021",
+        "mes": "2"
     }
 
-    resp = averbacao.atm(payload)
+    resp = cte.backup(payload)
 
     print(resp)
 

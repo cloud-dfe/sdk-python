@@ -1,4 +1,4 @@
-from src.Base import Base, ConfigBase
+from .Base import Base, ConfigBase
 
 class Nfe(Base):
 
@@ -12,11 +12,11 @@ class Nfe(Base):
         return self.client.send("POST", "/nfe/preview", payload)
     
     def status(self) -> any:
-        return self.client.send("POST", "/nfe/status", [])
+        return self.client.send("POST", "/nfe/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", F"/nfe/{key}", [])
+        return self.client.send("GET", F"/nfe/{key}")
     
     def busca(self, payload: any) -> any:
         return self.client.send("POST", "/nfe/busca", payload)
@@ -32,11 +32,11 @@ class Nfe(Base):
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/nfe/pdf/{key}", [])
+        return self.client.send("GET", f"/nfe/pdf/{key}")
     
     def etiqueta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/nfe/pdf/etiqueta/{key}", [])
+        return self.client.send("GET", f"/nfe/pdf/etiqueta/{key}")
     
     def manifesta(self, payload: any) -> any:
         return self.client.send("POST", "/nfe/manisfesta", payload)
@@ -46,7 +46,7 @@ class Nfe(Base):
     
     def download(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", f"/nfe/download/{key}", [])
+        return self.client.send("GET", f"/nfe/download/{key}")
     
     def recebidas(self, payload: any) -> any:
         return self.client.send("POST", "/nfe/recebidas", payload)
