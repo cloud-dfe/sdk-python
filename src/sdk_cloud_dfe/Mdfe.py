@@ -43,8 +43,8 @@ class Mdfe(Base):
     def nfe(self, payload: any) -> any:
         return self.client.send("POST", "/mdfe/nfe", payload)
     
-    def abertos(self, payload: any) -> any:
-        return self.client.send("POST", "/abertos", payload)
+    def abertos(self) -> any:
+        return self.client.send("GET", "/mdfe/abertos")
     
     def importa(self, payload: any) -> any:
         return self.client.send("POST", "/mdfe/importa", payload)

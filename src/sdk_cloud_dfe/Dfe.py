@@ -1,6 +1,6 @@
 from .Base import Base, ConfigBase
 
-class Dte(Base):
+class Dfe(Base):
 
     def __init__(self, params: ConfigBase) -> None:
         super().__init__(params)

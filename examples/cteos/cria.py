@@ -97,9 +97,9 @@ try:
             payload = {
                 "chave": chave
             }
-            respC = cteos.consulta(payload)
-            if respC.get("codigo") != 5023:
-                if respC.get("sucesso"):
+            resp_c = cteos.consulta(payload)
+            if resp_c.get("codigo") != 5023:
+                if resp_c.get("sucesso"):
                     print(resp)
                     break
             else:
@@ -119,13 +119,13 @@ try:
             "chave": chave
         }
 
-        respC = cteos.consulta(payload)
-        if respC.get("sucesso"):
-            if respC.get("codigo") == 5023:
-                print(respC)
+        resp_c = cteos.consulta(payload)
+        if resp_c.get("sucesso"):
+            if resp_c.get("codigo") == 5023:
+                print(resp_c)
         
         else:
-            print(respC)
+            print(resp_c)
 
     else:
         print(resp)

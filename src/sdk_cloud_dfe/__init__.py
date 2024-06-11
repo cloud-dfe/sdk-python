@@ -3,7 +3,7 @@ from .Base import ConfigBase, AMBIENTE_HOMOLOGACAO, AMBIENTE_PRODUCAO
 from .Certificado import Certificado
 from .Cte import Cte
 from .Cteos import Cteos
-from .Dfe import Dte
+from .Dfe import Dfe
 from .Emitente import Emitente
 from .Gnre import Gnre
 from .Mdfe import Mdfe
@@ -15,8 +15,8 @@ from .Softhouse import Softhouse
 __all__ = ["Averbacao",
            "Certificado",
            "Cte",
-           "Cte",
-           "Dte",
+           "Cteos",
+           "Dfe",
            "Emitente",
            "Gnre",
            "Mdfe",

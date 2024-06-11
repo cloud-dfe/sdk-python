@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="sdk_cloud_dfe",
-    version="1.0.7",
+    version="1.0.8",
     author="Integra Notas",
     author_email="comercial@cloud-dfe.com.br",
     description="SDK para comunicar com API Integra Notas.",

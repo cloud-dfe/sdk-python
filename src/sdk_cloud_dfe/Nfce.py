@@ -11,9 +11,8 @@ class Nfce(Base):
     def preview(self, payload: any) -> any:
         return self.client.send("POST", "/nfce/preview", payload)
     
-    def status(self, payload: any) -> any:
-        key = Base.check_key(payload)
-        return self.client.send("GET", "/nfce", payload)
+    def status(self) -> any:
+        return self.client.send("GET", "/nfce/status")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
