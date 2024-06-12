@@ -13,7 +13,7 @@ class Nfse(Base):
     
     def pdf(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("POST", f"/nfse/{key}")
+        return self.client.send("GET", f"/nfse/{key}")
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)

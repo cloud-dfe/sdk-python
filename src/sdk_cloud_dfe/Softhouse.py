@@ -13,7 +13,7 @@ class Softhouse(Base):
     
     def mostra_emitente(self, payload: any) -> any:
 
-        if not payload or not payload.get("get"):
+        if not payload or not payload.get("doc"):
             raise ValueError("Deve ser passado um CNPJ ou um CPF para visualizar o emitente.")
         
         doc = payload.get("doc")
@@ -31,7 +31,7 @@ class Softhouse(Base):
     
     def deleta_emitente(self, payload: any) -> any:
 
-        if not payload or not payload.get("get"):
+        if not payload or not payload.get("doc"):
             raise ValueError("Deve ser passado um CNPJ ou um CPF para visualizar o emitente.")
         
         doc = payload.get("doc")

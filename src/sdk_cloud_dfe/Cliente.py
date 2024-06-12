@@ -5,21 +5,16 @@ from .RequestAPI import RequestApi
 AMBIENTE_PRODUCAO = "1"
 AMBIENTE_HOMOLOGACAO = "2"
 
+URI = {
+    "api":{
+        "1":"https://api.integranotas.com.br/v1",
+        "2":"https://hom-api.integranotas.com.br/v1"
+    }
+}
+
 class Client():
 
-    def __init__(self, params: dict) -> None:
-
-        def json_file(path) -> dict | None:
-                    try:
-                        with open(path, "r", encoding="utf-8") as file:
-                            dados: dict = json.load(file)
-                            return dados
-                        
-                    except FileNotFoundError:
-                        raise ValueError(f"Arquivo não encontrado.")
-                    
-                    except json.JSONDecodeError:
-                        raise ValueError(f"Erro ao decodificar o arquivo.")
+    def __init__(self, params: dict, direction: str = "api") -> None:
         
         self.params = params
 
@@ -36,27 +31,13 @@ class Client():
         self.token: str = params.get("token")
         self.options: dict = params.get("options")
 
-        self.path_config = (params.get("path_config")) or "./config.json"
-
-
-        try:
-            json_base_uri = json_file(self.path_config)
-            
-            if self.ambiente :
-                self.base_uri = json_base_uri.get("api")[self.ambiente]
-
-            else:
-                 raise ValueError("ambiente não está definido no config.json. [1 / 2]")
-
-        except: 
-             raise ValueError("Arquivo json não configurado corretamente. Acesse https://github.com/cloud-dfe/sdk-nodejs para obter informações de como configura-lo")
+        self.base_uri = URI.get(direction).get(self.ambiente)
 
         config = {
             "base_uri": self.base_uri,
             "token": self.token,
             "options": self.options
         }
-
 
         self.client = RequestApi(config)
 

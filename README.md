@@ -12,19 +12,6 @@ pip install sdk-cloud-dfe
 
 ## Forma de uso:
 
-### Configure um arquivo config.json e defina isso nela:
-
-```json
-    {
-        "api":{
-            "1":"https:\/\/api.integranotas.com.br\/v1",
-            "2":"https:\/\/hom-api.integranotas.com.br\/v1"
-        }
-    }
-```
-
-### Exemplo de uso:
-
 ```py
 from sdk_cloud_dfe import Nfe, ConfigBase, AMBIENTE_HOMOLOGACAO
 

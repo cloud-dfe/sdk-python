@@ -11,8 +11,8 @@ class ConfigBase():
             token:str,
             timeout: int,
             port: int,
-            path_config: str = None,
             debug: bool = False
+            
             ) -> None:
         
         self.ambiente: int = ambiente   
@@ -22,11 +22,10 @@ class ConfigBase():
             "port": port,
             "debug": debug
         }
-        self.path_config = path_config
 
 class Base():
 
-    def __init__(self, params: ConfigBase) -> None:
+    def __init__(self, params: ConfigBase, direction: str = "api") -> None:
         
         self.params = params
 
@@ -53,11 +52,10 @@ class Base():
         config = {
             "ambiente": self.params.ambiente,
             "token": self.params.token,
-            "options": self.options,
-            "path_config": self.params.path_config
+            "options": self.options
         }
 
-        self.client = Client(config)
+        self.client = Client(config, direction)
 
     def check_key(payload: any) -> str:
         key = re.sub(r"[^0-9]", "", payload.get("chave"))
