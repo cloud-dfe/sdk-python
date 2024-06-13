@@ -11,6 +11,7 @@ from .Nfce import Nfce
 from .Nfe import Nfe
 from .Nfse import Nfse
 from .Softhouse import Softhouse
+from .Util import Util
 
 __all__ = ["Averbacao",
            "Certificado",
@@ -24,6 +25,7 @@ __all__ = ["Averbacao",
            "Nfe",
            "Nfse",
            "Softhouse",
+           "Util",
            "ConfigBase",
            "AMBIENTE_HOMOLOGACAO",
            "AMBIENTE_PRODUCAO"]
