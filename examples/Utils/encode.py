@@ -1,4 +1,4 @@
-from sdk_cloud_dfe import Util  # Supondo que Util seja o nome do arquivo e da classe
+from sdk_cloud_dfe import Util
 
 try:
     data = "texto a ser codificado"

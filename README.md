@@ -43,6 +43,8 @@ Para saber os detalhes referente ao dados de envio e os retornos consulte nossa 
 
 [Pasta de Exemplos](https://github.com/cloud-dfe/sdk-python/tree/master/examples)
 
+[Utilitários](https://github.com/cloud-dfe/sdk-python/tree/master/examples/utils)
+
 [Averbação](https://github.com/cloud-dfe/sdk-python/tree/master/examples/averbacao)
 
 [Certificado Digital](https://github.com/cloud-dfe/sdk-python/tree/master/examples/certificado)
