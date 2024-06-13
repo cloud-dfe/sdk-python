@@ -39,8 +39,6 @@ Para saber os detalhes referente ao dados de envio e os retornos consulte nossa 
 
 ### Veja alguns exemplos de consumi de nossa API nos link abaixo:
 
-## AVISO!!! EXEMPLOS EM DESENVOLVIMENTO, FOI DISPONIBILIZADO O SDK PARA TESTE APENAS!!!
-
 [Pasta de Exemplos](https://github.com/cloud-dfe/sdk-python/tree/master/examples)
 
 [Utilitários](https://github.com/cloud-dfe/sdk-python/tree/master/examples/utils)
