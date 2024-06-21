@@ -16,7 +16,7 @@ class Nfe(Base):
     
     def consulta(self, payload: any) -> any:
         key = Base.check_key(payload)
-        return self.client.send("GET", F"/nfe/{key}")
+        return self.client.send("GET", f"/nfe/{key}")
     
     def busca(self, payload: any) -> any:
         return self.client.send("POST", "/nfe/busca", payload)

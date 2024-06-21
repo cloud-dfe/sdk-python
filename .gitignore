@@ -4,6 +4,7 @@
 *.env
 *caminho_do_arquivo.xml
 *caminho_do_arquivo.pfx
+*console_import.txt
 *config.json
 
 # Bytecode Python

@@ -8,6 +8,7 @@ from .Emitente import Emitente
 from .Gnre import Gnre
 from .Mdfe import Mdfe
 from .Nfce import Nfce
+from .Nfcom import Nfcom
 from .Nfe import Nfe
 from .Nfse import Nfse
 from .Softhouse import Softhouse
@@ -22,6 +23,7 @@ __all__ = ["Averbacao",
            "Gnre",
            "Mdfe",
            "Nfce",
+           "Nfcom",
            "Nfe",
            "Nfse",
            "Softhouse",
