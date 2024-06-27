@@ -25,7 +25,7 @@ try:
             chave = doc.get("chave")
 
         for evento in resp.get("eventos_proprios", []):
-            chave = doc.get("chave")
+            chave = evento.get("chave")
 
 except Exception as error:
     print("Ocorreu um erro", error)
