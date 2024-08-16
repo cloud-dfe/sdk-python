@@ -13,6 +13,7 @@ from .Nfe import Nfe
 from .Nfse import Nfse
 from .Softhouse import Softhouse
 from .Util import Util
+from .Webhook import Webhook
 
 __all__ = ["Averbacao",
            "Certificado",
@@ -28,6 +29,7 @@ __all__ = ["Averbacao",
            "Nfse",
            "Softhouse",
            "Util",
+           "Webhook",
            "ConfigBase",
            "AMBIENTE_HOMOLOGACAO",
            "AMBIENTE_PRODUCAO"]

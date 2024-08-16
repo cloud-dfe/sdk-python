@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="sdk_cloud_dfe",
-    version="1.0.12",
+    version="1.0.13",
     author="Integra Notas",
     author_email="comercial@cloud-dfe.com.br",
     description="SDK para comunicar com API Integra Notas.",
@@ -15,7 +15,7 @@ setup(
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
     install_requires=[
-    "requests",
+    "requests", "pycryptodome",
     ],
     classifiers=[
         'Programming Language :: Python :: 3',
