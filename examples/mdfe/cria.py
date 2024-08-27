@@ -67,7 +67,7 @@ try:
                     }
                 ]
             },
-            "reboque": []
+            "reboques": []
         }
     }
 
