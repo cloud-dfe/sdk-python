@@ -2,13 +2,10 @@ import json
 
 from .RequestAPI import RequestApi
 
-AMBIENTE_PRODUCAO = "1"
-AMBIENTE_HOMOLOGACAO = "2"
-
 URI = {
     "api":{
-        "1":"https://api.integranotas.com.br/v1",
-        "2":"https://hom-api.integranotas.com.br/v1"
+        1:"https://api.integranotas.com.br/v1",
+        2:"https://hom-api.integranotas.com.br/v1"
     }
 }
 
@@ -21,7 +18,7 @@ class Client():
         if not self.params:
             raise ValueError("Devem ser passados os parametros básicos.")
         
-        if params.get("ambiente") != AMBIENTE_HOMOLOGACAO and params.get("ambiente") != AMBIENTE_PRODUCAO:
+        if params.get("ambiente") != 1 and params.get("ambiente") != 2:
             raise ValueError("O AMBIENTE deve ser 1-PRODUCÃO OU 2-HOMOLOCAÇÃO.")
         
         if not params.get("token") or not isinstance(params.get("token"), str) or not params.get("token").strip():

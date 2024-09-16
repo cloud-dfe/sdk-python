@@ -1,7 +1,7 @@
 import re
 import base64
 
-from .Cliente import AMBIENTE_HOMOLOGACAO, AMBIENTE_PRODUCAO, Client
+from .Cliente import Client
 
 class ConfigBase():
 
@@ -44,9 +44,9 @@ class Base():
             }
 
         if not self.params.ambiente:
-            self.params.ambiente = AMBIENTE_HOMOLOGACAO
+            self.params.ambiente = 2
 
-        if params.ambiente != AMBIENTE_HOMOLOGACAO and params.ambiente != AMBIENTE_PRODUCAO:
+        if params.ambiente != 1 and params.ambiente != 2:
             raise ValueError("O Ambiente deve ser 1-PRODUÇÃO ou 2 HOMOLOGAÇÃO.")
         
         config = {

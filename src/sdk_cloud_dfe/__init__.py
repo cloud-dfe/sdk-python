@@ -1,5 +1,5 @@
 from .Averbacao import Averbacao
-from .Base import ConfigBase, AMBIENTE_HOMOLOGACAO, AMBIENTE_PRODUCAO
+from .Base import ConfigBase
 from .Certificado import Certificado
 from .Cte import Cte
 from .Cteos import Cteos
@@ -14,6 +14,9 @@ from .Nfse import Nfse
 from .Softhouse import Softhouse
 from .Util import Util
 from .Webhook import Webhook
+
+AMBIENTE_PRODUCAO = 1
+AMBIENTE_HOMOLOGACAO = 2
 
 __all__ = ["Averbacao",
            "Certificado",
