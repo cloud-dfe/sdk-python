@@ -1,9 +1,9 @@
-from sdk_cloud_dfe import Emitente, ConfigBase
+from sdk_cloud_dfe import AMBIENTE_PRODUCAO, Emitente, ConfigBase
 
 try:
     config = ConfigBase(
-        ambiente=2, # 1 - produção / 2 - homologação
-        token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOiJ0b2tlbl9leGVtcGxvIiwidXNyIjoidGsiLCJ0cCI6InRrIn0.Tva_viCMCeG3nkRYmi_RcJ6BtSzui60kdzIsuq5X-sQ",
+        ambiente=AMBIENTE_PRODUCAO, # 1 - produção / 2 - homologação
+        token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbXAiOjg3OTcsInVzciI6MzM5LCJ0cCI6MiwiaWF0IjoxNzI2NjcwMTQ4fQ.m0xe_qM74OXzKfp9tY5IGErqZsBJtI3EWIV5ARvKHOU",
         timeout=60,
         port=443
     )
