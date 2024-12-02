@@ -95,15 +95,20 @@ try:
         }
 
         resp_c = nfse.consulta(payload)
-        if resp_c.get("sucesso"):
-            if resp_c.get("codigo") == 5023:
+        if resp_c.get("codigo") != 5023:
+            if resp_c.get("sucesso"):
+                print(resp_C)
+                return resp_c
+            else:
                 print(resp_c)
-        
+                return resp_c
         else:
             print(resp_c)
+            return resp_c
 
     else:
-        print(resp)
+        print(resp_c)
+        return resp_c
         
 except Exception as error:
     print("Ocorreu um erro", error)
