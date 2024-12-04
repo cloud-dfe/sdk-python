@@ -189,18 +189,14 @@ try:
         resp_c = nfe.consulta(payload)
         if resp_c.get("codigo") != 5023:
             if resp_c.get("sucesso"):
-                print(resp_C)
-                return resp_c
+                print(resp_c)
             else:
                 print(resp_c)
-                return resp_c
         else:
             print(resp_c)
-            return resp_c
 
     else:
-        print(resp_c)
-        return resp_c
+        print(resp)
         
 except Exception as error:
     print("Ocorreu um erro", error)

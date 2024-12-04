@@ -134,7 +134,7 @@ try:
     elif resp.get("codigo") in [5001, 5002]:
         print(resp.get("erros"))
     
-    elif resp.get("codigo") == 5008 or resp.get("codigo") >= 7000:
+    elif resp.get("codigo") == 5008:
         chave = resp.get("chave")
 
         print(resp)

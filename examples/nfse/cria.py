@@ -86,7 +86,7 @@ try:
     elif resp.get("codigo") in [5001, 5002]:
         print(resp.get("erros"))
     
-    elif resp.get("codigo") == 5008 or resp.get("codigo") >= 7000:
+    elif resp.get("codigo") == 5008:
         chave = resp.get("chave")
 
         print(resp)
@@ -97,18 +97,14 @@ try:
         resp_c = nfse.consulta(payload)
         if resp_c.get("codigo") != 5023:
             if resp_c.get("sucesso"):
-                print(resp_C)
-                return resp_c
+                print(resp_c)
             else:
                 print(resp_c)
-                return resp_c
         else:
             print(resp_c)
-            return resp_c
 
     else:
-        print(resp_c)
-        return resp_c
+        print(resp)
         
 except Exception as error:
     print("Ocorreu um erro", error)
