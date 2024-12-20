@@ -105,6 +105,40 @@ try:
     resp = nfce.cria(payload)
 
     print(resp)
+
+    if resp.get("sucesso"):
+        if resp.get("codigo") == 2:
+            # aguardar a chave e consultar/ou esperar o webhook notificar quando for processada pela sefaz
+            print(resp)
+        else:
+            # autorizado
+            print(resp)
+
+    elif resp.get("codigo") == 5001 or resp.get("codigo") == 5002:
+        # erro nos campos
+        print(resp)
+    elif resp.get("codigo") == 5008 or resp.get("codigo") >= 7000:
+        chave = resp.get("chave")
+
+        print(resp)
+        payload = {
+            "chave": chave
+        }
+
+        resp = nfce.consulta(payload)
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                # autorizado
+                print(resp)
+            else:
+                # rejeição
+                print(resp)
+        else:
+            # em processamento
+            print(resp)
+    else:
+        # rejeição
+        print(resp)
         
 except Exception as error:
     print("Ocorreu um erro", error)
