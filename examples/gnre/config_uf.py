@@ -11,7 +11,7 @@ try:
     gnre = Gnre(config)
 
     payload = {
-        "uf_favoverida": "RR",
+        "uf_favorecida": "RR",
         "codigo_receita": None,
         "curier": None
     }
