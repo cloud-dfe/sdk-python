@@ -120,14 +120,14 @@ try:
             payload = {
                 "chave": chave
             }
-            respC = cte.consulta(payload)
-            if respC.get("codigo") != 5023:
-                if respC.get("sucesso"):
+            resp = cte.consulta(payload)
+            if resp.get("codigo") != 5023:
+                if resp.get("sucesso"):
                     print(resp)
                     break
-            else:
-                print(resp)
-                break
+                else:
+                    print(resp)
+                    break
         time.sleep(5)
         tentativa += 1
 
@@ -142,13 +142,14 @@ try:
             "chave": chave
         }
 
-        respC = cte.consulta(payload)
-        if respC.get("sucesso"):
-            if respC.get("codigo") == 5023:
-                print(respC)
-        
+        resp = cte.consulta(payload)
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                print(resp)
+            else:
+                print(resp)
         else:
-            print(respC)
+            print(resp)
 
     else:
         print(resp)

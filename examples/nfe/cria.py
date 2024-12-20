@@ -186,14 +186,14 @@ try:
             "chave": chave
         }
 
-        resp_c = nfe.consulta(payload)
-        if resp_c.get("codigo") != 5023:
-            if resp_c.get("sucesso"):
-                print(resp_c)
+        resp = nfe.consulta(payload)
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                print(resp)
             else:
-                print(resp_c)
+                print(resp)
         else:
-            print(resp_c)
+            print(resp)
 
     else:
         print(resp)

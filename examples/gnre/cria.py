@@ -103,9 +103,11 @@ try:
         }
 
         respC = gnre.consulta(payload)
-        if respC.get("sucesso"):
-            print(respC)
-        
+        if respC.get("codigo") != 5023:
+            if respC.get("sucesso"):
+                print(respC)
+            else:
+                print(respC)
         else:
             print(respC)
 

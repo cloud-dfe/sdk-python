@@ -95,14 +95,14 @@ try:
             payload = {
                 "chave": chave
             }
-            resp_c = cteos.consulta(payload)
-            if resp_c.get("codigo") != 5023:
-                if resp_c.get("sucesso"):
+            resp = cteos.consulta(payload)
+            if resp.get("codigo") != 5023:
+                if resp.get("sucesso"):
                     print(resp)
                     break
-            else:
-                print(resp)
-                break
+                else:
+                    print(resp)
+                    break
         time.sleep(5)
         tentativa += 1
 
@@ -117,13 +117,14 @@ try:
             "chave": chave
         }
 
-        resp_c = cteos.consulta(payload)
-        if resp_c.get("sucesso"):
-            if resp_c.get("codigo") == 5023:
-                print(resp_c)
-        
+        resp = cteos.consulta(payload)
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                print(resp)
+            else:
+                print(resp)
         else:
-            print(resp_c)
+            print(resp)
 
     else:
         print(resp)
