@@ -62,3 +62,7 @@ class Nfe(Base):
     
     def cadastro(self, payload: any) -> any:
         return self.client.send("POST", "/nfe/cadastro", payload)
+    
+    def simples(self, payload: any) -> any:
+        key = Base.check_key(payload)
+        return self.client.send("GET", f"/nfe/pdf/simples/{key}")
