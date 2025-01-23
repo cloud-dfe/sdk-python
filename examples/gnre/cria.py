@@ -68,27 +68,24 @@ try:
 
     if resp.get("sucesso"):
         chave = resp.get("chave")
-        if resp.get("codigo") == 5023:
+        time.sleep(15)
+        
+        payload = {
+            "chave": chave
+        }
 
-            time.sleep(5)
-            tentativa = 1
+        resp = gnre.consulta(payload)
 
-            while tentativa <= 5:
-                payload = {
-                    "chave": chave
-                }
-                respC = gnre.consulta(payload)
-                if respC.get("codigo") != 5023:
-                    if respC.get("sucesso"):
-                        print(respC)
-                        break
-                    else:
-                        print(respC)
-                        break
-                
-                time.sleep(5)
-                tentativa += 1
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                # autorizado
+                print(resp)
+            else:
+                # rejeição
+                print(resp)
         else:
+            # nota em processamento
+            # recomendamos que seja utilizado o metodo de consulta manual ou o webhook
             print(resp)
     
     elif resp.get("codigo") in [5001, 5002]:

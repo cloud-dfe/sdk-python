@@ -158,22 +158,25 @@ try:
 
     if resp.get("sucesso"):
         chave = resp.get("chave")
-        time.sleep(5)
-        tentativa = 1
-        while tentativa <= 5:
-            payload = {
-                "chave": chave
-            }
-            resp_c = nfe.consulta(payload)
-            if resp_c.get("codigo") != 5023:
-                if resp_c.get("sucesso"):
-                    print(resp)
-                    break
-            else:
+        time.sleep(15)
+        
+        payload = {
+            "chave": chave
+        }
+
+        resp = nfe.consulta(payload)
+
+        if resp.get("codigo") != 5023:
+            if resp.get("sucesso"):
+                # autorizado
                 print(resp)
-                break
-        time.sleep(5)
-        tentativa += 1
+            else:
+                # rejeição
+                print(resp)
+        else:
+            # nota em processamento
+            # recomendamos que seja utilizado o metodo de consulta manual ou o webhook
+            print(resp)
 
     elif resp.get("codigo") in [5001, 5002]:
         print(resp.get("erros"))
