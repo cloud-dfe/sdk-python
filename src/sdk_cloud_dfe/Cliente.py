@@ -1,6 +1,6 @@
 import json
 
-from .RequestAPI import RequestApi
+from .Services import Services
 
 URI = {
     "api":{
@@ -11,11 +11,9 @@ URI = {
 
 class Client():
 
-    def __init__(self, params: dict, direction: str = "api") -> None:
-        
-        self.params = params
+    def __init__(self, params: dict) -> None:
 
-        if not self.params:
+        if not params:
             raise ValueError("Devem ser passados os parametros básicos.")
         
         if params.get("ambiente") != 1 and params.get("ambiente") != 2:
@@ -26,23 +24,52 @@ class Client():
         
         self.ambiente: int = params.get("ambiente")
         self.token: str = params.get("token")
-        self.options: dict = params.get("options")
 
-        self.base_uri = URI.get(direction).get(self.ambiente)
+        self.port: int = params.get("port", None)
+        self.timeout: int = params.get("timeout", None)
+        self.debug: bool = params.get("debug", None)
+        
+        if not params.get("port") or not params.get("timeout"):
+            self.port = params["options"].get("port")
+            self.timeout = params["options"].get("timeout")
+            self.debug = params["options"].get("debug")
+
+        self.base_uri = URI.get("api").get(self.ambiente)
 
         config = {
             "base_uri": self.base_uri,
             "token": self.token,
-            "options": self.options
+            "port": self.port,
+            "timeout": self.timeout,
+            "debug": self.debug
         }
 
-        self.client = RequestApi(config)
+        self.client = Services(config)
 
     def send(self, method: str, route:str, payload:any = None) -> any:
-         
          try:
-              response_data = self.client.request(method, route, payload)
-              return response_data
+            headers: dict = {
+                "Authorization": self.token,
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+
+            response_data = self.client.request(method, route, headers, payload)
+            return response_data
          
          except Exception as error:
-              raise ValueError("Erro ao enviar solicitação HTTP: ", error)
+            raise ValueError("Erro ao enviar solicitação HTTP: ", error)
+         
+    def sendMultipart(self, route: str, payload: dict) -> any:
+        try:
+            headers: dict = {
+                "Authorization": self.token,
+                "Content-Type": "multipart/form-data",
+                "Accept": "application/json"
+            }
+
+            response_data = self.client.request("POST", route, headers, payload)
+            return response_data
+        
+        except Exception as error:
+            raise ValueError("Erro ao enviar solicitação HTTP: ", error)

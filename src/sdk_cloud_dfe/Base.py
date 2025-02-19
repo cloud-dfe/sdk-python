@@ -17,45 +17,32 @@ class ConfigBase():
         
         self.ambiente: int = ambiente   
         self.token: str = token
-        self.options: dict = {
-            "timeout": timeout,
-            "port": port,
-            "debug": debug
-        }
+        self.timeout: int = timeout
+        self.port: int = port
+        self.debug: bool = debug
 
 class Base():
 
-    def __init__(self, params: ConfigBase, direction: str = "api") -> None:
+    def __init__(self, params: ConfigBase) -> None:
+
+        if not params:
+            raise ValueError("Devem ser passados os parametros básicos.")
         
-        self.params = params
+        self.ambiente: int = params.ambiente
+        self.token: str = params.token
+        self.port: int = params.port
+        self.timeout: int = params.timeout
+        self.debug: bool = params.debug
 
-        if self.params.options:
-            self.options = {
-                "timeout": self.params.options.get("timeout"),
-                "port": self.params.options.get("port"),
-                "debug": self.params.options.get("debug"),
-            }
-
-        else:
-            self.options = {
-                "timeout": 60,
-                "port": 443,
-                "debug": False,
-            }
-
-        if not self.params.ambiente:
-            self.params.ambiente = 2
-
-        if params.ambiente != 1 and params.ambiente != 2:
-            raise ValueError("O Ambiente deve ser 1-PRODUÇÃO ou 2 HOMOLOGAÇÃO.")
-        
-        config = {
-            "ambiente": self.params.ambiente,
-            "token": self.params.token,
-            "options": self.options
+        config: dict = {
+            "ambiente": self.ambiente,
+            "token": self.token,
+            "port": self.port,
+            "timeout": self.timeout,
+            "debug": self.debug
         }
 
-        self.client = Client(config, direction)
+        self.client = Client(config)
 
     def check_key(payload: any) -> str:
         key = re.sub(r"[^0-9]", "", payload.get("chave"))
