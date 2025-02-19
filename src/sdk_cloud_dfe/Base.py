@@ -6,14 +6,13 @@ from .Cliente import Client
 class ConfigBase():
 
     def __init__(
-            self, 
-            ambiente: int, 
-            token:str,
-            timeout: int,
-            port: int,
-            debug: bool = False
-            
-            ) -> None:
+        self, 
+        ambiente: int, 
+        token:str,
+        timeout: int,
+        port: int,
+        debug: bool = False
+    ) -> None:
         
         self.ambiente: int = ambiente   
         self.token: str = token
