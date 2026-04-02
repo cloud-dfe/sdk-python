@@ -8,7 +8,8 @@ class ConfigBase():
     def __init__(
         self, 
         ambiente: int, 
-        token:str,
+        token: str,
+        version: int,
         timeout: int,
         port: int,
         debug: bool = False
@@ -16,6 +17,7 @@ class ConfigBase():
         
         self.ambiente: int = ambiente   
         self.token: str = token
+        self.version: int = version
         self.timeout: int = timeout
         self.port: int = port
         self.debug: bool = debug
@@ -32,10 +34,12 @@ class Base():
         self.port: int = params.port
         self.timeout: int = params.timeout
         self.debug: bool = params.debug
+        self.version: int = params.version
 
         config: dict = {
             "ambiente": self.ambiente,
             "token": self.token,
+            "version": self.version,
             "port": self.port,
             "timeout": self.timeout,
             "debug": self.debug

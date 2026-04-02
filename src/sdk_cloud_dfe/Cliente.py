@@ -4,8 +4,8 @@ from .Services import Services
 
 URI = {
     "api":{
-        1:"https://api.integranotas.com.br/v1",
-        2:"https://hom-api.integranotas.com.br/v1"
+        1:"https://api.integranotas.com.br/v",
+        2:"https://hom-api.integranotas.com.br/v"
     }
 }
 
@@ -34,7 +34,11 @@ class Client():
             self.timeout = params["options"].get("timeout")
             self.debug = params["options"].get("debug")
 
-        self.base_uri = URI.get("api").get(self.ambiente)
+        version = params.get("version", 1)
+        if version is None:
+            version = 1
+            
+        self.base_uri = URI.get("api").get(self.ambiente) + str(version)
 
         config = {
             "base_uri": self.base_uri,
