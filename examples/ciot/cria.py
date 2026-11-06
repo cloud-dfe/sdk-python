@@ -11,7 +11,8 @@ try:
     ciot = Ciot(config)
 
     payload = {
-        "identificacao": "VIAGEM-0001",
+        "numero": "1001",
+        "identificacao": "PEDIDO-77",
         "tipo_operacao": "1",
         "data_inicio": "2026-11-10",
         "data_fim": "2026-11-12",
@@ -82,7 +83,7 @@ try:
 
     if resp.get("sucesso"):
         if resp.get("codigo") == 5023:
-            pass  # lote em processamento: consultar pela identificação ou esperar o webhook
+            pass  # lote em processamento: consultar pela chave ou esperar o webhook
         else:
             pass  # CIOT declarado
     else:

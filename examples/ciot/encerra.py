@@ -11,7 +11,7 @@ try:
     ciot = Ciot(config)
 
     payload = {
-        "identificacao": "VIAGEM-0001",
+        "chave": "41261122333444000181927090000010011360347860",
         "carga": {
             "tipo": "05",
             "natureza": "8414",
