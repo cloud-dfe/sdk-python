@@ -49,6 +49,8 @@ Para saber os detalhes referente ao dados de envio e os retornos consulte nossa 
 
 [CIOT](https://github.com/cloud-dfe/sdk-python/tree/master/examples/ciot)
 
+[VPO](https://github.com/cloud-dfe/sdk-python/tree/master/examples/vpo)
+
 [CT-e](https://github.com/cloud-dfe/sdk-python/tree/master/examples/cte)
 
 [CT-e OS](https://github.com/cloud-dfe/sdk-python/tree/master/examples/cteos)

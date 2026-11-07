@@ -2,6 +2,7 @@ from .Averbacao import Averbacao
 from .Base import ConfigBase
 from .Certificado import Certificado
 from .Ciot import Ciot
+from .Vpo import Vpo
 from .Cte import Cte
 from .Cteos import Cteos
 from .Dfe import Dfe
@@ -22,6 +23,7 @@ AMBIENTE_HOMOLOGACAO = 2
 __all__ = ["Averbacao",
            "Certificado",
            "Ciot",
+           "Vpo",
            "Cte",
            "Cteos",
            "Dfe",
